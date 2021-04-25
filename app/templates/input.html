@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Input Page{% endblock %}
+<!-- start input form content-->
+{% block content %}
+<!-- CSS -->
+<style type="text/css">
+    td {
+        padding: 5px 15px;
+    }
+</style>
+<div class="contact">
+    <h1>Titanic Booking</h1>
+    <!-- Just here i use "url_for" to call the function get_contact.
+             This function return the html code of our contact page-->
+    <form action="{{ url_for('get_passenger') }}" method=post>
+        <div>
+            <table className="padding-table-columns">
+                <tr>
+                    <!-- first name forms -->
+                    <td>
+                        {{ form.first_name.label }} <br>
+                        {{ form.first_name(placeholder='Your first name...') }}
+                    </td>
+                    <!-- There will be a 5px space here-->
+                    <!-- last name forms -->
+                    <td>
+                        {{ form.last_name.label }} <br>
+                        {{ form.last_name(placeholder='Your last name...') }}
+                    </td>
+                    <!-- There will be an invisible 5px space here-->
+                </tr>
+
+            </table>
+            <table className="padding-table-columns">
+                <tr>
+                    <!-- sibsp forms -->
+                    <td>
+                        {{ form.sibsp.label }} <br>
+                        {{ form.sibsp(placeholder='Total number with you...') }}
+                    </td>
+
+                    <!-- parch forms -->
+                    <td>
+                        {{ form.parch.label }} <br>
+                        {{ form.parch(placeholder='Total number with you...') }}
+                    </td>
+                </tr>
+            </table>
+            <table className="padding-table-columns">
+                <tr>
+                    <!-- parch forms -->
+                    <td>
+                        {{ form.fare.label }} <br>
+                        {{ form.fare(placeholder='0 to 500') }}
+                    </td>
+                    <!-- age forms -->
+                    <td>
+                        {{ form.age.label }} <br>
+                        {{ form.age(placeholder='Your age...') }}
+                    </td>
+                </tr>
+            </table>
+
+
+            <table className="padding-table-columns">
+                <tr>
+                    <!-- drop down genders -->
+                    <td>
+                        {{ form.gender.label }}<br>
+                        {{form.gender()}}
+                    </td><!-- drop down passenger class -->
+                    <td>
+                        {{ form.pClass.label }}<br>
+                        {{form.pClass()}}
+                    </td>
+                    <!-- drop down locations for departure-->
+                    <td>
+                        {{ form.embarked.label }}<br>
+                        {{form.embarked()}}
+                    </td>
+
+                    <!-- drop down passenger classes -->
+                    <td>
+                        {{ form.title.label }}<br>
+                        {{form.title()}}
+                    </td>
+
+                </tr>
+            </table>
+
+            <table className="padding-table-columns">
+                <tr>
+                    <!-- Submit button -->
+                    <td> {{ form.submit }}
+                    </td>
+                    <!-- There will be a 5px space here-->
+                    <td> Survival Rate Prediction<br>{{prediction}}</td>
+
+                    <!-- There will be an invisible 5px space here-->
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+{% endblock %}
