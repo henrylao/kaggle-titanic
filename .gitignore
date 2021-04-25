@@ -126,3 +126,4 @@ dmypy.json
 
 # PyCaret model artifacts
 /catboost_info
+*.csv
